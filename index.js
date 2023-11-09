@@ -1,15 +1,15 @@
 require('dotenv').config()
 const express = require('express');
-// const cors = require('cors');
+const cors = require('cors');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 
 
 const app = express(); 
 app.use(express.json());
-// app.use(cors({
-//     origin: 'https://shahid-makandar.vercel.app'
-// }));
+app.use(cors({
+    origin: 'https://shahid-makandar.vercel.app'
+}));
      
 
 // Parse JSON and URL-encoded bodies
