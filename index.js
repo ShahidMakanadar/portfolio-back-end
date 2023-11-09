@@ -35,7 +35,7 @@ app.post('/sendEmail', async (req, res) => {
         let detailes = {
             from: process.env.USER_EMAIL,// sender address
             to: process.env.EMAIL_TO , // list of receivers
-            subject: `${subject}`, // Subject line
+            subject: subject, // Subject line
             text: EmailmessageUser, // plain text body
         };
         transporter.sendMail(detailes, async (err) => {
@@ -45,7 +45,7 @@ app.post('/sendEmail', async (req, res) => {
             }
             else {
                 console.log("successfulli message send")
-                res.status(200).send(result)
+                res.status(200).send({result:"success"})
             }
         })
     }
