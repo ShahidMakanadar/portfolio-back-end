@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express');
 // const cors = require('cors');
 const nodemailer = require('nodemailer');
+const bodyParser = require('body-parser');
 
 
 const app = express(); 
@@ -10,6 +11,11 @@ app.use(express.json());
 //     origin: 'https://shahid-makandar.vercel.app'
 // }));
      
+
+// Parse JSON and URL-encoded bodies
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 // users API's  
 app.get('/',(req,res)=>{
     res.send({result:"portfolio"})
